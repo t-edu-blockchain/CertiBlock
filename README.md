@@ -101,13 +101,11 @@ Here for clarity, we present you a step-by-step guide:
     cd chaincode
     npm i
 
-    cd $FABRIC_SAMPLES_DIR
+    cd ${FABRIC_SAMPLES_DIR}/test-network
     peer lifecycle chaincode package edu.tar.gz --path "$PROJECT_ROOT/chaincode/" --lang node --label edu-1_0
 
     # 2. INSTALL THE CHAINCODE ONTO EVERY PEER IN THE NETWORK THAT WILL ENDORSE TRANSACTIONS.
     #    IN THIS CASE, THERE ARE PEERS IN TWO ORGANIZATIONS: Org1 and Org2.
-
-    cd ${FABRIC_SAMPLES_DIR}/test-network
 
     export CORE_PEER_TLS_ENABLED=true
     export CORE_PEER_LOCALMSPID="Org1MSP"
