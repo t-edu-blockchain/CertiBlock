@@ -14,8 +14,8 @@ class EducertContract extends Contract {
      * Certificate schema is written to database during initialization. Schema is necessary for encryption. 
      * @param {Context} ctx the transaction context.
      */
-    async initLedger(ctx) {
-        console.log("-------------------------initLedger Called---------------------------------------")
+    async InitLedger(ctx) {
+        console.log("-------------------------InitLedger Called---------------------------------------")
       
         let schemaCertificate = new Schema("university degree", "v1", ["universityName", "major", "departmentName", "cgpa"] );
 
