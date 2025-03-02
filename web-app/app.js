@@ -5,9 +5,8 @@ const config = require('./loaders/config');
 //load database
 const mongoose = require('./database/mongoose');
 
-//load fabric environemtn
-require('./loaders/fabric-loader');
-
+//load fabric environment
+const { loaderPromise: fabricLoaderPromise } = require('./loaders/fabric-loader');
 
 //third party libraries
 let createError = require('http-errors');
@@ -73,4 +72,9 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+const setupApp = async () => {
+  await fabricLoaderPromise;
+  return app;
+}
+
+module.exports = { setupApp };
